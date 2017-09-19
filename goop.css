@@ -1,0 +1,13 @@
+.game-window {
+    background-image: url("img/MarsGoopClickerBackground.png");
+    height: 720px;
+    background-size: cover;
+}
+
+h1 {
+    color: orangered;
+}
+
+p {
+    color: orangered;
+}
