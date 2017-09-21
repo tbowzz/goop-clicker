@@ -2,11 +2,14 @@
   <html lang="en">
   <head>
  
+    <script type="text/javascript" src="script.js"></script>
+
+
   <link rel = "stylesheet"
     type = "text/css"
     href = "mystyle.css" />
  
-    <script src="GoopScript.js"></script>
+ 
  
       <title>Bootstrap Example</title>
       <meta charset="utf-8">
@@ -92,16 +95,20 @@
              <div class="col-sm-8 text-left game-window">
                  <h1>Goop Clicker</h1>
                  <p>Click on your martian goop to spark the evolution of life!</p>
+                 <p id="score_place">Evolution: 0</p>
 
                  <img src="img/goop1.png" alt="Goop Image" align="right" height="124" width="124">
+
                  <img src="img/martian_noship.jpg" alt="Martian" align="bottom" height="124" width="64">
+
+                 <img src="img/goop1.png" height="124" width="124" id="clickSpot" onmouseup="clickFunction()">
   
               </div>
               <div class="col-sm-2 sidenav">
                  <div class="well">
-                     <p>ADS</p>
+                     <p>STORE</p>
                  <div class="well" id="buy_up1" opacity=0.1>
-                     <p>UPGRADE 1aa<br><font size="-2">Buy for 50 Clicks</font></p>
+                     <p>UPGRADE 1aa<br><font size="-2">Buy for upgrade1_clicks Clicks</font></p>
                  </div>
  
                  <div class="well" id="buy_up2">
@@ -111,13 +118,12 @@
                  <div class="well" id="buy_ship">
                     <p>Build Ship<br><font size="-2">Buy for 400 Clicks</font></p>
                   </div>
-                 <div class="well">
-                     <p>ADS</p>
+
  
  				<div class="well" id="fly_away">
                     <p>FLY AWAY<br><font size="-2">Need ship</font></p>
                   </div>
-              </div>
+ 
           </div>
      </div>
  

@@ -1,16 +1,20 @@
-#buy_up1
+#buy_up1,#buy_up2,#buy_ship,#fly_away
 {
-	opacity: 0.5;
+	opacity: 0.3;
+	background-color: lightblue;
 }
-#buy_up2
+
+#clickSpot
 {
-	opacity: 0.5;
+	position: absolute;
+	top: 70%;
+    right: 45%;
 }
-#buy_ship
+
+#score_place
 {
-	opacity: 0.5;
-}
-#fly_away
-{
-	opacity: 0.5;
+	position: absolute;
+	top:5%;
+	right:5%;
+	font-size: 300%;
 }
