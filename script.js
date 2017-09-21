@@ -30,6 +30,8 @@ function initialize()
 	item4 = document.getElementById("fly_away");
 	item4.innerHTML  = "FLY AWAY<br>need ship ";
 
+	itemArray = {item1,item2,item3,item4};
+
 	
 }
 window.onload = initialize;
@@ -65,11 +67,21 @@ function updateShop()
 	}
 }
 
+function numberToItem(number) //arrays have betrayed me...
+{
+	switch(number)
+	{
+		case 1: return item1;
+		case 2: return item2;
+		case 3: return item3;
+		case 4: return item4;
+	}
+}
 function buy(number)
 {
 	if(canBuy(number))
 	{
-		turnShopItemOff(number);
+		turnShopItemOff(numberToItem(number));
 		switch(number)
 		{
 			case 1: 
@@ -83,11 +95,15 @@ function buy(number)
 			case 3:
 				ship_bought = true;
 				score -= upgrade3_clicks;
+				break;
+			case 4:
+				winGame();
 		}
 		updateScoreText();
-
+		updateShop();
 	}
 }
+
 function canBuy(number)
 {
 	switch(number)
@@ -110,4 +126,9 @@ function turnShopItemOff(e)
 {
 	e.style.opacity = OFF_OPACITY;
 	e.style.backgroundColor = "lightblue";
+}
+
+function winGame()
+{
+
 }
