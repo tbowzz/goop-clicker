@@ -1,10 +1,10 @@
 var upgrade1_clicks = 1;
 var upgrade1_bought = false;
 
-var upgrade2_clicks = 2;
+var upgrade2_clicks = 4;
 var upgrade2_bought = false;
 
-var upgrade3_clicks = 3;
+var upgrade3_clicks = 16;
 var ship_bought = false;
 
 var upgrade4_clicks = 0;
@@ -87,10 +87,12 @@ function buy(number)
 			case 1: 
 				upgrade1_bought = true;
 				score -= upgrade1_clicks;
+				score_multiplier = 2;
 				break;
 			case 2:
 				upgrade2_bought = true;
 				score -= upgrade2_clicks;
+				score_multiplier = 4;
 				break;
 			case 3:
 				ship_bought = true;
@@ -130,5 +132,5 @@ function turnShopItemOff(e)
 
 function winGame()
 {
-
+	alert("YOU LOSE THE SHIP BLOWS UP AND YOU DIE TERRIBLY")
 }
