@@ -1,5 +1,5 @@
 var image2source = "img/blob1.png"
-var image3source = "img/martian_noship.jpg";
+var image3source = "img/martian_noship.png";
 var image4source = "img/martian.jpg";
 
 var upgrade1_clicks = 5;
