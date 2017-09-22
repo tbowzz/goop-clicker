@@ -20,6 +20,10 @@ var score_multiplier = 1;
 
 var cur_goop;
 
+var H = 110;
+var W = 110;
+var mult = 1.10;
+
 var item1, item2, item3, item4, itemArray;
 var upgradeArray;
 function initialize()
@@ -39,6 +43,8 @@ function initialize()
 	itemArray = {item1,item2,item3,item4};
 
 	cur_goop = document.getElementById("clickSpot");
+	cur_goop.width = W;
+	cur_goop.height = H;
 
 	
 }
@@ -122,10 +128,20 @@ function changeGoopPicture(number)
 {
 	switch(number)
 	{
-		case 1: cur_goop.src = image2source; return;
-		case 2: cur_goop.src = image3source; return;
-		case 3: cur_goop.src = image4source; return;
+		case 1: 
+			cur_goop.src = image2source; 
+			break;
+		case 2: 
+			cur_goop.src = image3source; 
+			H=160;
+			break;
+		case 3:
+			cur_goop.src = image4source; 
+			W=160;
+			break;
 	}
+	cur_goop.width = W;
+	cur_goop.height = H;
 	
 }
 
@@ -164,11 +180,10 @@ function winGame()
 	//alert("YOU LOSE THE SHIP BLOWS UP AND YOU DIE TERRIBLY")
 }
 
-var H = 110;
-var W = 110;
+
 function pulseGoop()
 {
-	jQuery(cur_goop).finish().animate({height: H*1.05, width: W*1.05},200,"swing", normalizeGoop);
+	jQuery(cur_goop).finish().animate({height: H*mult, width: W*mult},200,"swing", normalizeGoop);
 }
 
 function normalizeGoop()
