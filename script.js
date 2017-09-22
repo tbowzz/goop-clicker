@@ -2,16 +2,16 @@ var image2source = "img/blob1.png"
 var image3source = "img/martian_noship.jpg";
 var image4source = "img/martian.jpg";
 
-var upgrade1_clicks = 1;
+var upgrade1_clicks = 5;
 var upgrade1_bought = false;
 
-var upgrade2_clicks = 4;
+var upgrade2_clicks = 25;
 var upgrade2_bought = false;
 
-var upgrade3_clicks = 16;
+var upgrade3_clicks = 50;
 var ship_bought = false;
 
-var upgrade4_clicks = 0;
+var upgrade4_clicks = 50;
 
 var OFF_OPACITY = 0.3;
 
@@ -38,7 +38,7 @@ function initialize()
 	item3.innerHTML  = "BUY SHIP<br>buy for " + upgrade3_clicks;
 
 	item4 = document.getElementById("fly_away");
-	item4.innerHTML  = "FLY AWAY<br>need ship ";
+	item4.innerHTML  = "FLY AWAY<br>charge up 50 fuel ";
 
 	itemArray = {item1,item2,item3,item4};
 
@@ -140,9 +140,7 @@ function changeGoopPicture(number)
 			W=160;
 			break;
 	}
-	cur_goop.width = W;
-	cur_goop.height = H;
-	
+	normalizeGoop();
 }
 
 function canBuy(number)
@@ -152,7 +150,7 @@ function canBuy(number)
 		case 1: return score >= upgrade1_clicks && !upgrade1_bought;
 		case 2: return score >= upgrade2_clicks && !upgrade2_bought;
 		case 3: return score >= upgrade3_clicks && !ship_bought;
-		case 4: return ship_bought;
+		case 4: return score >= upgrade4_clicks && ship_bought;
 	}
 	return false;
 }
@@ -183,7 +181,7 @@ function winGame()
 
 function pulseGoop()
 {
-	jQuery(cur_goop).finish().animate({height: H*mult, width: W*mult},200,"swing", normalizeGoop);
+	jQuery(cur_goop).finish().animate({height: H*mult, width: W*mult},200,"swing",normalizeGoop);
 }
 
 function normalizeGoop()
