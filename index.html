@@ -10,14 +10,14 @@
     href = "mystyle.css" />
  
  
- 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+     </script>
       <title>Bootstrap Example</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <link rel="stylesheet" href="goop.css" 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-     </script>
+
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <style>
          /* Remove the navbar's default margin-bottom and rounded borders */
@@ -92,7 +92,7 @@
                  <p><a href="#">Link</a></p>
                  <p><a href="#">Link</a></p>
              </div>
-             <div class="col-sm-8 text-left game-window">
+             <div class="col-sm-8 text-left game-window" id="mainWindow">
                  <h1>Goop Clicker</h1>
                  <p>Click on your martian goop to spark the evolution of life!</p>
                  <p id="score_place">Evolution: 0</p>
@@ -101,7 +101,7 @@
 
                  <img src="img/martian_noship.jpg" alt="Martian" align="bottom" height="124" width="64">
 
-                 <img src="img/goop1.png" height="124" width="124" id="clickSpot" onmouseup="clickFunction()">
+                 <img src="img/goop1.png" id="clickSpot" height="100px" onmouseup="clickFunction()">
   
               </div>
               <div class="col-sm-2 sidenav">

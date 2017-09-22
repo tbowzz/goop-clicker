@@ -1,3 +1,7 @@
+var image2source = "img/blob1.png"
+var image3source = "img/martian_noship.jpg";
+var image4source = "img/martian.jpg";
+
 var upgrade1_clicks = 1;
 var upgrade1_bought = false;
 
@@ -13,6 +17,8 @@ var OFF_OPACITY = 0.3;
 
 var score = 0;
 var score_multiplier = 1;
+
+var cur_goop;
 
 var item1, item2, item3, item4, itemArray;
 var upgradeArray;
@@ -32,11 +38,14 @@ function initialize()
 
 	itemArray = {item1,item2,item3,item4};
 
+	cur_goop = document.getElementById("clickSpot");
+
 	
 }
 window.onload = initialize;
 function clickFunction()
 {
+	pulseGoop();
 	score+=1*score_multiplier;
 	updateScoreText();
 	updateShop();
@@ -88,15 +97,18 @@ function buy(number)
 				upgrade1_bought = true;
 				score -= upgrade1_clicks;
 				score_multiplier = 2;
+				changeGoopPicture(1);
 				break;
 			case 2:
 				upgrade2_bought = true;
 				score -= upgrade2_clicks;
 				score_multiplier = 4;
+				changeGoopPicture(2);
 				break;
 			case 3:
 				ship_bought = true;
 				score -= upgrade3_clicks;
+				changeGoopPicture(3);
 				break;
 			case 4:
 				winGame();
@@ -104,6 +116,17 @@ function buy(number)
 		updateScoreText();
 		updateShop();
 	}
+}
+
+function changeGoopPicture(number)
+{
+	switch(number)
+	{
+		case 1: cur_goop.src = image2source; return;
+		case 2: cur_goop.src = image3source; return;
+		case 3: cur_goop.src = image4source; return;
+	}
+	
 }
 
 function canBuy(number)
@@ -132,5 +155,23 @@ function turnShopItemOff(e)
 
 function winGame()
 {
-	alert("YOU LOSE THE SHIP BLOWS UP AND YOU DIE TERRIBLY")
+	var MW = document.getElementById("mainWindow");
+	MW.innerHTML = "YOU WIN!";
+	MW.style.fontSize = "200px";
+	MW.style.color = "white";
+
+
+	//alert("YOU LOSE THE SHIP BLOWS UP AND YOU DIE TERRIBLY")
+}
+
+var H = 110;
+var W = 110;
+function pulseGoop()
+{
+	jQuery(cur_goop).finish().animate({height: H*1.05, width: W*1.05},200,"swing", normalizeGoop);
+}
+
+function normalizeGoop()
+{
+	jQuery(cur_goop).animate({height: H, width: W},200,"swing");
 }
