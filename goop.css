@@ -1,7 +1,7 @@
 .game-window {
     background-image: url("img/MarsGoopClickerBackground.png");
     height: 720px;
-    background-size: cover;
+    background-size: length;
 }
 
 h1 {
